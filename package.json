@@ -1,0 +1,23 @@
+{
+  "name": "city-map",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@baidumap/jsapi-loader": "^1.0.0",
+    "@turf/turf": "^7.4.0",
+    "pinia": "^4.0.0",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.8",
+    "less": "^4.9.1",
+    "vite": "^8.3.0"
+  }
+}
