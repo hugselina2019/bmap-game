@@ -1934,4 +1934,136 @@ function roundRectPath(ctx, x, y, w, h, r) {
   max-width: 260px;
   margin: 6px 0 0;
 }
+
+/* ===== 移动端适配（主流手机 ≤ 768px）===== */
+@media (max-width: 768px) {
+  /* 布局：上下结构，地图在上、面板在下 */
+  .container {
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh; /* 移动端浏览器地址栏收缩时保持满屏 */
+  }
+
+  .map-wrap {
+    width: 100%;
+    height: 42%;
+    flex-shrink: 0;
+  }
+
+  .book-panel {
+    width: 100%;
+    min-width: 0;
+    height: 58%;
+    padding: 0 12px 12px;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* 头部 */
+  .book-header {
+    padding: 10px 0 8px;
+  }
+
+  .book-title {
+    font-size: 16px;
+  }
+
+  .book-subtitle {
+    font-size: 12px;
+  }
+
+  .stats-num {
+    font-size: 22px;
+  }
+
+  /* 省份列表：触控友好 */
+  .province-item {
+    padding: 11px 12px;
+  }
+
+  .province-name {
+    font-size: 15px;
+  }
+
+  /* 筛选栏：加大触控面积 */
+  .filter-bar {
+    padding: 10px 0;
+    gap: 6px;
+  }
+
+  .filter-bar button {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  /* 演示模式行：允许换行，避免溢出 */
+  .sim-row {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .sim-row-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .loc-inline {
+    padding: 5px 10px;
+  }
+
+  /* 图鉴列表 */
+  .book-item {
+    padding: 11px 12px;
+  }
+
+  /* 弹窗：全屏覆盖 + 内容可滚动（弹窗 DOM 在 map-wrap 内，
+     移动端地图只占 42% 高度，需 fixed 才能覆盖全屏）*/
+  .popup {
+    position: fixed;
+    z-index: 300;
+  }
+
+  .popup-content {
+    width: 92%;
+    max-width: none;
+    max-height: 80%;
+    overflow-y: auto;
+    padding: 14px;
+  }
+
+  .spot-img {
+    height: 140px;
+  }
+
+  .tip {
+    font-size: 13px;
+  }
+
+  /* 按钮加大触控目标（≥44px）*/
+  .btn-row {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .btn-check,
+  .btn-checked,
+  .btn-route {
+    padding: 12px 8px;
+    font-size: 15px;
+  }
+
+  .close-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* 定位按钮避开 iOS 底部安全区 */
+  .locate-btn {
+    bottom: calc(24px + env(safe-area-inset-bottom));
+    width: 44px;
+    height: 44px;
+  }
+}
+
 </style>
